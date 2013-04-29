@@ -32,7 +32,7 @@
 		        <dependency>
             <groupId>com.madeja</groupId>
             <artifactId>gps-lib</artifactId>
-            <version>0.01</version>
+            <version>0.05</version>
         </dependency>
 		<dependency>
 			<groupId>com.google.android.maps</groupId>

@@ -1,24 +1,24 @@
 package com.madeja;
 
 import android.R.drawable;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.google.android.maps.*;
+import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapView;
 import com.madeja.gpslib.GPSLib;
 
 public class MainActivity extends MapActivity {
     /** Called when the activity is first created. */
     LinearLayout linearLayout;
     MapView mapView;
+    final Activity activity = this;
     boolean zapnuteGPS;
     GPSLib gps;
     @Override
@@ -48,6 +48,7 @@ public class MainActivity extends MapActivity {
 			public boolean onMenuItemClick(MenuItem item) {
 				if (!zapnuteGPS) {
 					gps.zapniGPS();
+					gps.zapniKompas(activity, mapView);
 					zapnuteGPS = true;
 					Toast.makeText( getApplicationContext(), 
 							"Tracking zapnutý", 

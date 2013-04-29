@@ -2,6 +2,7 @@ package com.madeja;
 
 import android.R.drawable;
 import android.app.Activity;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,7 +11,9 @@ import android.view.MenuItem.OnMenuItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.madeja.gpslib.GPSLib;
 
@@ -32,6 +35,14 @@ public class MainActivity extends MapActivity {
     }
     
     public boolean onCreateOptionsMenu(Menu menu) {
+    	
+    	Location loc = gps.getCurrentLocation();
+        //final MapController controller = mapView.getController();
+        
+        mapView.getController().animateTo(new GeoPoint((int)(loc.getLatitude() * 1E6), (int)(loc.getLongitude() * 1E6)));
+        Log.i("I", "Location" + loc.toString());
+        mapView.getController().setZoom(15);
+        
     	OnMenuItemClickListener polohyListener = new OnMenuItemClickListener() {
 			
 			@Override

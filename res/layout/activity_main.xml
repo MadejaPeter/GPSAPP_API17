@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/mainlayout"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-
-
-<com.google.android.maps.MapView
-    android:id="@+id/mapview"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:clickable="true"
-    android:apiKey="0aoaEUd4oEQEqzQY-zUlQMF_JWRkSZxHa5eCXLg">   
+    android:orientation="vertical" >
 
-</com.google.android.maps.MapView>
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:inputType="textPostalAddress" 
+        android:hint="@string/search_hint">
+        <requestFocus />
+    </EditText>
 
+    <com.google.android.maps.MapView
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/search"
+        android:apiKey="0aoaEUd4oEQEqzQY-zUlQMF_JWRkSZxHa5eCXLg"
+        android:clickable="true" >
+    </com.google.android.maps.MapView>
 
-</RelativeLayout>   
+</RelativeLayout>
